@@ -1,0 +1,9 @@
+savely@SavelyUBU:~/Рабочий стол/Labs$ find ./Labs8/2/main.c
+./Labs8/2/main.c
+savely@SavelyUBU:~/Рабочий стол/Labs$ find . -name 'main'
+./Git/Test/.git/refs/remotes/origin/main
+./Git/Test/.git/refs/heads/main
+./Git/Test/.git/logs/refs/remotes/origin/main
+./Git/Test/.git/logs/refs/heads/main
+./Labs10/main
+
