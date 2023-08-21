@@ -1,0 +1,63 @@
+savely@SavelyUBU:~/Рабочий стол/Labs/Labs20/xargs$ df
+Файл.система   1K-блоков Использовано Доступно Использовано% Cмонтировано в
+udev             7833888            0  7833888            0% /dev
+tmpfs            1573472         1924  1571548            1% /run
+/dev/nvme0n1p8  30106488     15413224 13140880           54% /
+tmpfs            7867356            0  7867356            0% /dev/shm
+tmpfs               5120            4     5116            1% /run/lock
+tmpfs            7867356            0  7867356            0% /sys/fs/cgroup
+/dev/loop4        254848       254848        0          100% /snap/gnome-3-38-2004/99
+/dev/loop1           128          128        0          100% /snap/bare/5
+/dev/loop3        224256       224256        0          100% /snap/gnome-3-34-1804/72
+/dev/loop2        224256       224256        0          100% /snap/gnome-3-34-1804/77
+/dev/loop5         66688        66688        0          100% /snap/gtk-common-themes/1515
+/dev/loop6         56960        56960        0          100% /snap/core18/2284
+/dev/loop7         44672        44672        0          100% /snap/snapd/14978
+/dev/loop8          3072         3072        0          100% /snap/ksnip/407
+/dev/loop9         55552        55552        0          100% /snap/snap-store/558
+/dev/loop10        52224        52224        0          100% /snap/snap-store/547
+/dev/nvme0n1p1     98304        50724    47580           52% /boot/efi
+/dev/loop11        63488        63488        0          100% /snap/core20/1376
+/dev/loop12        66816        66816        0          100% /snap/gtk-common-themes/1519
+/dev/loop13        63488        63488        0          100% /snap/core20/1361
+/dev/loop14       267008       267008        0          100% /snap/kde-frameworks-5-core18/32
+/dev/loop15       253952       253952        0          100% /snap/gnome-3-38-2004/87
+tmpfs            1573468           64  1573404            1% /run/user/1000
+/dev/loop16        56960        56960        0          100% /snap/core18/2344
+/dev/loop0         44800        44800        0          100% /snap/snapd/15177
+savely@SavelyUBU:~/Рабочий стол/Labs/Labs20/xargs$ df -h
+Файл.система   Размер Использовано  Дост Использовано% Cмонтировано в
+udev             7,5G            0  7,5G            0% /dev
+tmpfs            1,6G         1,9M  1,5G            1% /run
+/dev/nvme0n1p8    29G          15G   13G           54% /
+tmpfs            7,6G            0  7,6G            0% /dev/shm
+tmpfs            5,0M         4,0K  5,0M            1% /run/lock
+tmpfs            7,6G            0  7,6G            0% /sys/fs/cgroup
+/dev/loop4       249M         249M     0          100% /snap/gnome-3-38-2004/99
+/dev/loop1       128K         128K     0          100% /snap/bare/5
+/dev/loop3       219M         219M     0          100% /snap/gnome-3-34-1804/72
+/dev/loop2       219M         219M     0          100% /snap/gnome-3-34-1804/77
+/dev/loop5        66M          66M     0          100% /snap/gtk-common-themes/1515
+/dev/loop6        56M          56M     0          100% /snap/core18/2284
+/dev/loop7        44M          44M     0          100% /snap/snapd/14978
+/dev/loop8       3,0M         3,0M     0          100% /snap/ksnip/407
+/dev/loop9        55M          55M     0          100% /snap/snap-store/558
+/dev/loop10       51M          51M     0          100% /snap/snap-store/547
+/dev/nvme0n1p1    96M          50M   47M           52% /boot/efi
+/dev/loop11       62M          62M     0          100% /snap/core20/1376
+/dev/loop12       66M          66M     0          100% /snap/gtk-common-themes/1519
+/dev/loop13       62M          62M     0          100% /snap/core20/1361
+/dev/loop14      261M         261M     0          100% /snap/kde-frameworks-5-core18/32
+/dev/loop15      248M         248M     0          100% /snap/gnome-3-38-2004/87
+tmpfs            1,6G          64K  1,6G            1% /run/user/1000
+/dev/loop16       56M          56M     0          100% /snap/core18/2344
+/dev/loop0        44M          44M     0          100% /snap/snapd/15177
+savely@SavelyUBU:~/Рабочий стол/Labs/Labs20/xargs$ df public_html
+df: public_html: Нет такого файла или каталога
+savely@SavelyUBU:~/Рабочий стол/Labs/Labs20/xargs$ df Labs20
+df: Labs20: Нет такого файла или каталога
+savely@SavelyUBU:~/Рабочий стол/Labs/Labs20/xargs$ cd ..
+savely@SavelyUBU:~/Рабочий стол/Labs/Labs20$ cd ..
+savely@SavelyUBU:~/Рабочий стол/Labs$ df Labs20
+Файл.система   1K-блоков Использовано Доступно Использовано% Cмонтировано в
+/dev/nvme0n1p8  30106488     15413532 13140572           54% /
