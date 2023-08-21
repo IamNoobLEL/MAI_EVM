@@ -1,0 +1,100 @@
+savely@SavelyUBU:~$ ld 'Рабочий стол'
+ld: невозможно найти Рабочий стол: file format not recognized
+savely@SavelyUBU:~$ cd 'Рабочий стол'
+savely@SavelyUBU:~/Рабочий стол$ cd Labs8
+savely@SavelyUBU:~/Рабочий стол/Labs8$ cd 1
+savely@SavelyUBU:~/Рабочий стол/Labs8/1$ cat > main.c
+#include <stdio.h>
+
+int main(void)
+{
+    int a = 0;
+    int b = 0, c = 0;
+
+    scanf("%d%d", &a, &b);
+    c = a + b;
+
+    printf("%d\n", c);
+    return 0;
+}
+
+
+savely@SavelyUBU:~/Рабочий стол/Labs8/1$ cc -E main.c -o main.i
+savely@SavelyUBU:~/Рабочий стол/Labs8/1$ gcc -E main.c -o main.i
+savely@SavelyUBU:~/Рабочий стол/Labs8/1$ gcc -S main.i -o main.s
+savely@SavelyUBU:~/Рабочий стол/Labs8/1$ as main.s -o main.o
+savely@SavelyUBU:~/Рабочий стол/Labs8/1$ ld /usr/lib/x86_64-linux-gnu/crti.o \
+>    /usr/lib/x86_64-linux-gnu/crtn.o \
+>    /usr/lib/x86_64-linux-gnu/crt1.o \
+>    -lc main.o -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o main_ELF_executable
+savely@SavelyUBU:~/Рабочий стол/Labs8/1$ ./main_ELF_executable 
+1 2
+3
+savely@SavelyUBU:~/Рабочий стол/Labs8/1$ 
+savely@SavelyUBU:~/Рабочий стол/Labs8$ cd 2
+savely@SavelyUBU:~/Рабочий стол/Labs8/2$ cat > make.c
+#include <stdio.h>
+
+int main(void)
+{
+    int n = 0, s = 0, b = 0;
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &b);
+        s += b;
+    }
+    printf("%d\n", s);
+    return 0;
+}
+
+savely@SavelyUBU:~/Рабочий стол/Labs8/2$ gcc -E main.c -o main.i
+gcc: error: main.c: Нет такого файла или каталога
+gcc: fatal error: no input files
+compilation terminated.
+savely@SavelyUBU:~/Рабочий стол/Labs8/2$ gcc -E main.c -o main.i
+savely@SavelyUBU:~/Рабочий стол/Labs8/2$ gcc -S main.c -o main.i
+savely@SavelyUBU:~/Рабочий стол/Labs8/2$ as main.s -o main.o
+Сообщения ассемблера:
+Ошибка: не удалось открыть main.s на чтение: Нет такого файла или каталога
+savely@SavelyUBU:~/Рабочий стол/Labs8/2$ gcc -S main.i -o main.s
+gcc: error: main.i: Нет такого файла или каталога
+gcc: fatal error: no input files
+compilation terminated.
+savely@SavelyUBU:~/Рабочий стол/Labs8/2$ gcc -S main.c -o main.i
+savely@SavelyUBU:~/Рабочий стол/Labs8/2$ gcc -E main.c -o main.i
+savely@SavelyUBU:~/Рабочий стол/Labs8/2$ gcc -S main.i -o main.s
+savely@SavelyUBU:~/Рабочий стол/Labs8/2$ as main.s -o main.o
+savely@SavelyUBU:~/Рабочий стол/Labs8/2$ ld /usr/lib/x86_64-linux-gnu/crti.o    /usr/lib/x86_64-linux-gnu/crtn.o    /usr/lib/x86_64-linux-gnu/crt1.o    -lc main.o -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o main_ELF_executable
+savely@SavelyUBU:~/Рабочий стол/Labs8/2$ ./main_ELF_executable 
+4 1 2 3 4
+10
+savely@SavelyUBU:~/Рабочий стол/Labs8/2$ 
+
+savely@SavelyUBU:~/Рабочий стол/Labs8$ cd 3
+savely@SavelyUBU:~/Рабочий стол/Labs8/3$ cat > main.c
+#include <stdio.h>
+
+int main(void)
+{
+    int n = 0, s = 0, b = 0;
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &b);
+        if (b >= 10) {
+            s += b;
+        }
+    }
+    printf("%d\n", s);
+    return 0;
+}
+
+savely@SavelyUBU:~/Рабочий стол/Labs8/3$ gcc -E main.c -o main.i
+savely@SavelyUBU:~/Рабочий стол/Labs8/3$ gcc -S main.i -o main.s
+savely@SavelyUBU:~/Рабочий стол/Labs8/3$ as main.s -o main.o
+savely@SavelyUBU:~/Рабочий стол/Labs8/3$ ld /usr/lib/x86_64-linux-gnu/crti.o    /usr/lib/x86_64-linux-gnu/crtn.o    /usr/lib/x86_64-linux-gnu/crt1.o    -lc main.o -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o main_ELF_executable
+savely@SavelyUBU:~/Рабочий стол/Labs8/3$ ./main_ELF_executable 
+4 1 2 3 10
+10
+savely@SavelyUBU:~/Рабочий стол/Labs8/3$ 
+
+
