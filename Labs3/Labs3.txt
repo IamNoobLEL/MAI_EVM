@@ -1,0 +1,166 @@
+savely@SavelyUBU:~$ ssh boev@193.108.113.89 -p 8022
+ssh: connect to host 193.108.113.89 port 8022: Connection timed out
+savely@SavelyUBU:~$ ssh boev@193.108.113.89 -p 8022
+The authenticity of host '[193.108.113.89]:8022 ([193.108.113.89]:8022)' can't be established.
+ECDSA key fingerprint is SHA256:HBCeNwOHQ3vypwMT9m1G46hlohGkTiuMgY2gPD3/Mf0.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[193.108.113.89]:8022' (ECDSA) to the list of known hosts.
+boev@193.108.113.89's password: 
+Last login: Sat Sep 11 08:48:11 2021 from 185.215.176.16
+boev@75924f752692:~$ scp -p 8022 -r boev@193.108.113.89:/home/boev/data ~/Labs3
+/home/boev/Labs3: No such file or directory
+boev@75924f752692:~$ ls
+111  cat.jpg  data  lll
+boev@75924f752692:~$ scp -p 8022 -r boev@193.108.113.89:/home/boev/data ~/111
+cp: cannot stat '8022': No such file or directory
+cp: cannot stat '-r': No such file or directory
+boev@193.108.113.89's password: 
+Permission denied, please try again.
+boev@193.108.113.89's password: 
+boev@75924f752692:~$ scp -P 8022 -r boev@193.108.113.89:/home/boev/data ~/111
+boev@193.108.113.89's password: 
+boev@75924f752692:~$ ls
+111  cat.jpg  data  lll
+boev@75924f752692:~$ cd 111
+boev@75924f752692:~/111$ ls
+7e0ca3jv  data  f64bgjad  l5cqjvba  o556518g  s0wey0zv  si5gip2v  udyt17p7  w60r7qgy  xmqu6ynl  yuelcy7y
+boev@75924f752692:~/111$ cd ..
+boev@75924f752692:~$ ls
+111  cat.jpg  data  lll
+boev@75924f752692:~$ rsync -vrhe "ssh -p 8022" boev@193.108.113.89:~/data ~/aboba
+boev@193.108.113.89's password: 
+receiving incremental file list
+created directory /home/boev/aboba
+sent 6.00K bytes  received 25.19M bytes  7.20M bytes/sec
+total size is 25.16M  speedup is 1.00
+boev@75924f752692:~$ ls
+111  aboba  cat.jpg  data  lll
+boev@75924f752692:~$ cd aboba
+boev@75924f752692:~/aboba$ ls
+data
+boev@75924f752692:~/aboba$ cd ..
+boev@75924f752692:~$ curl https:/http.cat/200 -o cat1.jpg
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 27012  100 27012    0     0  72612      0 --:--:-- --:--:-- --:--:-- 72612
+boev@75924f752692:~$ ls
+111  aboba  cat.jpg  cat1.jpg  data  lll
+boev@75924f752692:~$ wget -O cat3.jpg http.cat/200
+--2021-09-24 10:54:40--  http://http.cat/200
+2021-09-24 10:54:40 (159 MB/s) - ‘cat3.jpg’ saved [27012/27012]
+boev@75924f752692:~$ ls
+111  aboba  cat.jpg  cat1.jpg  cat3.jpg  data  lll
+boev@75924f752692:~$ tar -c -f cat.tar cat.jpg cat1.jpg cat3.jpg
+boev@75924f752692:~$ ls
+111  aboba  cat.jpg  cat.tar  cat1.jpg  cat3.jpg  data  lll
+boev@75924f752692:~$ cd cat.tar 
+-bash: cd: cat.tar: Not a directory
+boev@75924f752692:~$ tar -tf cat.tar
+cat.jpg
+cat1.jpg
+cat3.jpg
+boev@75924f752692:~$ cd lll
+boev@75924f752692:~/lll$ ls
+7e0ca3jv  f64bgjad  l5cqjvba  o556518g  s0wey0zv  si5gip2v  udyt17p7  w60r7qgy  xmqu6ynl  yuelcy7y
+boev@75924f752692:~/lll$ cd ..
+boev@75924f752692:~$ cd lll
+boev@75924f752692:~/lll$ cd 7e0ca3jv
+boev@75924f752692:~/lll/7e0ca3jv$ ls
+ajhvf.txt      emgxa.txt      gwbyw.txt      nlaox.txt      oyfjs.data     sdxwu.data  wgkbx.txt.txt  xrdof.data
+ajhvf.txt.txt  emgxa.txt.txt  gwbyw.txt.txt  nlaox.txt.txt  pohjx.txt      sgqrw.data  whhxc.txt      ywqyz.data
+ammuo.data     gdzta.txt      miuer.txt      nwotp.txt      pohjx.txt.txt  tdhym.data  whhxc.txt.txt  zicjg.data
+bweyq.data     gdzta.txt.txt  miuer.txt.txt  nwotp.txt.txt  pqvck.data     wgkbx.txt   xocqe.data
+boev@75924f752692:~/lll/7e0ca3jv$ cd ..
+boev@75924f752692:~/lll$ cd ..
+boev@75924f752692:~$ find . -name "ammuo.jpg"
+boev@75924f752692:~$ cd lll
+boev@75924f752692:~/lll$ cd 7e0ca3jv
+boev@75924f752692:~/lll/7e0ca3jv$ find . -name "ammuo.jpg"
+boev@75924f752692:~/lll/7e0ca3jv$ cd ..
+boev@75924f752692:~/lll$ find / -name "gdzta.txt"
+find: ‘/var/cache/ldconfig’: Permission denied
+find: ‘/var/cache/apt/archives/partial’: Permission denied
+find: ‘/root’: Permission denied
+find: ‘/etc/ssl/private’: Permission denied
+find: ‘/proc/tty/driver’: Permission denied
+find: ‘/proc/1/task/1/fd’: Permission denied
+find: ‘/proc/1/task/1/fdinfo’: Permission denied
+find: ‘/proc/1/task/1/ns’: Permission denied
+find: ‘/proc/1/fd’: Permission denied
+find: ‘/proc/1/map_files’: Permission denied
+find: ‘/proc/1/fdinfo’: Permission denied
+find: ‘/proc/1/ns’: Permission denied
+find: ‘/proc/53848/task/53848/fd’: Permission denied
+find: ‘/proc/53848/task/53848/fdinfo’: Permission denied
+find: ‘/proc/53848/task/53848/ns’: Permission denied
+find: ‘/proc/53848/fd’: Permission denied
+find: ‘/proc/53848/map_files’: Permission denied
+find: ‘/proc/53848/fdinfo’: Permission denied
+find: ‘/proc/53848/ns’: Permission denied
+find: ‘/proc/53850/task/53850/fd’: Permission denied
+find: ‘/proc/53850/task/53850/fdinfo’: Permission denied
+find: ‘/proc/53850/task/53850/ns’: Permission denied
+find: ‘/proc/53850/fd’: Permission denied
+find: ‘/proc/53850/map_files’: Permission denied
+find: ‘/proc/53850/fdinfo’: Permission denied
+find: ‘/proc/53850/ns’: Permission denied
+/home/boev/aboba/data/7e0ca3jv/gdzta.txt
+/home/boev/111/7e0ca3jv/gdzta.txt
+/home/boev/111/data/7e0ca3jv/gdzta.txt
+/home/boev/lll/7e0ca3jv/gdzta.txt
+/home/boev/data/7e0ca3jv/gdzta.txt
+boev@75924f752692:~/lll$ cd .
+boev@75924f752692:~/lll$ cd ..
+boev@75924f752692:~$ exit
+logout
+Connection to 193.108.113.89 closed.
+savely@SavelyUBU:~$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/savely/.ssh/id_rsa): /home/savely/.ssh/id_rsa
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/savely/.ssh/id_rsa
+Your public key has been saved in /home/savely/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:gMJ2CQWjQGcyaN7qWFtTIgUjqhivBF+eW4DkBoDXZJg savely@SavelyUBU
+The key's randomart image is:
++---[RSA 3072]----+
+|X+B@+            |
+|=OE*oo           |
+|B.O.* .          |
+|+B.*.o..         |
+|o.+.oo. S        |
+|.o. oo           |
+|+. o..           |
+|...              |
+|                 |
++----[SHA256]-----+
+savely@SavelyUBU:~$ ssh-copy-id -i ~/.ssh/id_rsa.pub boev@193.108.113.89
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/savely/.ssh/id_rsa.pub"
+The authenticity of host '193.108.113.89 (193.108.113.89)' can't be established.
+ECDSA key fingerprint is SHA256:9GNHuLK6zD660MndYsVOW3sLN2fmJti0erOVROtBCcI.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+boev@193.108.113.89's password: 
+Permission denied, please try again.
+boev@193.108.113.89's password: 
+Permission denied, please try again.
+boev@193.108.113.89's password: 
+boev@193.108.113.89: Permission denied (publickey,password).
+savely@SavelyUBU:~$ ssh-copy-id -i ~/.ssh/id_rsa.pub -p 8022 boev@193.108.113.89
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/savely/.ssh/id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+boev@193.108.113.89's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh -p '8022' 'boev@193.108.113.89'"
+and check to make sure that only the key(s) you wanted were added.
+
+savely@SavelyUBU:~$ ssh -p 8022 boev@193.108.113.89
+Last login: Fri Sep 24 10:37:08 2021 from 213.87.138.111
+boev@75924f752692:~$ exit
+logout
+Connection to 193.108.113.89 closed.
