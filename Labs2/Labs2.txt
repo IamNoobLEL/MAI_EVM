@@ -1,0 +1,148 @@
+savely@SavelyUBU:~$ pwd
+/home/savely
+savely@SavelyUBU:~$ cd "Рабочий Стол"
+bash: cd: Рабочий Стол: Нет такого файла или каталога
+savely@SavelyUBU:~$ cd "Рабочий cтол"
+bash: cd: Рабочий cтол: Нет такого файла или каталога
+savely@SavelyUBU:~$ ls
+ snap    Документы   Изображения   Общедоступные   Шаблоны
+ Видео   Загрузки    Музыка       'Рабочий стол'
+savely@SavelyUBU:~$ cd "Рабочий стол"
+savely@SavelyUBU:~/Рабочий стол$ mkdir Ranobes
+savely@SavelyUBU:~/Рабочий стол$ cd Ranobes
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ mkdir MyTop
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ mkdir AbandonedBooks
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ mkdir WaitingList
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ cd MyTop
+savely@SavelyUBU:~/Рабочий стол/Ranobes/MyTop$ cat > TopBooks
+9 Solo Leveling
+9 Versatile Mage
+8 Arena
+6 Master Hunter K
+6 Dungeon Hunter
+7 The world turned into a game after i woke up
+8 A Returner's magic should be special
+9 Praise the Orc
+8 Rebirth of the thief who roamed the world
+2 Warlock of the Magus World
+8 I reincarnated for nothing
+9 Player who returned 10,000 years later
+6 Emperor of a solo play
+4 Release that witch
+6 Martial world
+savely@SavelyUBU:~/Рабочий стол/Ranobes/MyTop$ ls
+TopBooks
+savely@SavelyUBU:~/Рабочий стол/Ranobes/MyTop$ cd ..
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ cd AbandonedBooks
+savely@SavelyUBU:~/Рабочий стол/Ranobes/AbandonedBooks$ cat > Abandoned
+Ze Tian Ji
+Reicarnation of the unemployed
+Renegade Immortal
+Death marchin to the Parallel World Rhapsody
+savely@SavelyUBU:~/Рабочий стол/Ranobes/AbandonedBooks$ ls
+Abandoned
+savely@SavelyUBU:~/Рабочий стол/Ranobes/AbandonedBooks$ cd ..
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ cd WaitingList
+savely@SavelyUBU:~/Рабочий стол/Ranobes/WaitingList$ cat > Waiting
+Arc
+The magus era
+Great Demon King
+Tempest of the stellar war
+Kill the hero
+The King's Avatar
+Fatal Shot
+savely@SavelyUBU:~/Рабочий стол/Ranobes/WaitingList$ ls
+Waiting
+savely@SavelyUBU:~/Рабочий стол/Ranobes/WaitingList$ cat Waiting
+Arc
+The magus era
+Great Demon King
+Tempest of the stellar war
+Kill the hero
+The King's Avatar
+Fatal Shot
+savely@SavelyUBU:~/Рабочий стол/Ranobes/WaitingList$ cd ..
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ cat > script.sh
+##!/bin/bash
+read -p "Preference:" name
+if [ "$name" == "MyTop" ]; then
+cat MyTop/MyTop.txt|sort
+elif [ "$name" == "Waiting" ]; then
+cat WaitingList/Waiting| tail -n 5
+elif [ "$name" == "Abandoned" ]; then
+cat AbandonedBooks/Abandoned| wc -l
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ rm script.sh
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ ls
+AbandonedBooks  MyTop  WaitingList
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ cat > script.sh
+#!/bin/bash
+read -p "Preference:" name
+if [ "$name" == "MyTop" ]; then
+cat MyTop/MyTop.txt|sort
+elif [ "$name" == "Waiting" ]; then
+cat WaitingList/Waiting| tail -n 5
+elif [ "$name" == "Abandoned" ]; then
+cat AbandonedBooks/Abandoned| wc -l
+fi
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ ls
+AbandonedBooks  MyTop  script.sh  WaitingList
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ bash script.sh
+Preference: MyTop
+cat: MyTop/MyTop.txt: Нет такого файла или каталога
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ rm script.sh
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ cat > script.sh
+#!/bin/bash
+read -p "Preference:" name
+if [ "$name" == "TopBooks" ]; then
+cat MyTop/MyTop.txt|sort
+elif [ "$name" == "Waiting" ]; then
+cat WaitingList/Waiting| tail -n 5
+elif [ "$name" == "Abandoned" ]; then
+cat AbandonedBooks/Abandoned| wc -l
+fi
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ bash script.sh
+Preference: MyTop
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ bash script.sh
+Preference: TopBooks
+cat: MyTop/MyTop.txt: Нет такого файла или каталога
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ rm script.sh
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ cat > script.sh
+#!/bin/bash
+read -p "Preference:" name
+if [ "$name" == "TopBooks" ]; then
+cat MyTop/TopBooks|sort
+elif [ "$name" == "Waiting" ]; then
+cat WaitingList/Waiting| tail -n 5
+elif [ "$name" == "Abandoned" ]; then
+cat AbandonedBooks/Abandoned| wc -l
+fi
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ bash script.sh
+Preference: MyTop
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ bash script.sh
+Preference: TopBooks
+2 Warlock of the Magus World
+4 Release that witch
+6 Dungeon Hunter
+6 Emperor of a solo play
+6 Martial world
+6 Master Hunter K
+7 The world turned into a game after i woke up
+8 Arena
+8 A Returner's magic should be special
+8 I reincarnated for nothing
+8 Rebirth of the thief who roamed the world
+9 Player who returned 10,000 years later
+9 Praise the Orc
+9 Solo Leveling
+9 Versatile Mage
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ bash script.sh
+Preference: Abandoned
+4
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ bash script.sh
+Preference: Waiting
+Great Demon King
+Tempest of the stellar war
+Kill the hero
+The King's Avatar
+Fatal Shot
+savely@SavelyUBU:~/Рабочий стол/Ranobes$ 
