@@ -1,4 +1,0 @@
-apples
-kiwis
-oranges
-pears
